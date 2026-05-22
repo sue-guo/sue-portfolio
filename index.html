@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sue Guo — Software Developer</title>
+<link rel="icon" type="image/png" href="/logo_h.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1E3A8A;
+    --blue: #2563EB;
+    --blue-light: #EFF6FF;
+    --teal: #0D9488;
+    --teal-light: #F0FDFA;
+    --gray-50: #F8FAFC;
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    --gray-400: #94A3B8;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-900: #0F172A;
+    --white: #FFFFFF;
+    --font-sans: 'DM Sans', sans-serif;
+    --font-serif: 'DM Serif Display', serif;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow: 0 4px 16px rgba(30,58,138,0.08), 0 1px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 12px 40px rgba(30,58,138,0.12), 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--gray-900);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: 60px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+    display: flex; align-items: center;
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem; font-weight: 500;
+    color: var(--gray-600);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--blue); }
+
+  /* ── SECTIONS ── */
+  section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 2.25rem;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .section-sub {
+    font-size: 1rem; color: var(--gray-600);
+    max-width: 600px; line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding-top: 5rem;
+    max-width: 1100px; margin: 0 auto;
+    padding-left: 2rem; padding-right: 2rem;
+    gap: 4rem;
+  }
+  .hero-text { flex: 1; min-width: 0; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 0.8rem; font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 999px;
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.04em;
+  }
+  .hero-badge span { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--teal);
+  }
+  .hero-desc {
+    font-size: 1.1rem; color: var(--gray-600);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--blue);
+    color: white;
+    font-size: 0.9rem; font-weight: 500;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .btn-primary:hover { background: var(--navy); transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent;
+    color: var(--navy);
+    font-size: 0.9rem; font-weight: 500;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--gray-200);
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .btn-outline:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); }
+  .hero-avatar-wrap {
+    width: 340px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-avatar {
+    width: 260px; height: 260px;
+    border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
+    background: linear-gradient(135deg, var(--blue-light), #DBEAFE);
+    border: 3px solid var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    color: var(--navy);
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    animation: float 5s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  .hero-stats {
+    display: flex; gap: 2rem; margin-top: 3rem; padding-top: 2rem;
+    border-top: 1px solid var(--gray-200);
+  }
+  .stat-num {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.8rem; color: var(--gray-400); margin-top: 2px; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--gray-100); border-radius: 32px; max-width: 1100px; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .about-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 2rem;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+  }
+  .about-card-icon {
+    width: 48px; height: 48px;
+    border-radius: var(--radius-sm);
+    background: var(--blue-light);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  .about-card h3 {
+    font-size: 1rem; font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+  .about-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.6; }
+  .about-cards { display: flex; flex-direction: column; gap: 1rem; }
+
+  /* ── SKILLS ── */
+  #skills {}
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .skill-group {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .skill-group:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .skill-group-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .skill-group-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .skill-group h3 {
+    font-size: 0.85rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--gray-700);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 0.78rem; font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--gray-100);
+    color: var(--gray-700);
+    line-height: 1.4;
+  }
+  .tag-blue { background: var(--blue-light); color: var(--blue); }
+  .tag-teal { background: var(--teal-light); color: var(--teal); }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--gray-100); border-radius: 32px; max-width: 1100px; }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 20px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--blue), var(--teal));
+    border-radius: 2px;
+  }
+  .timeline-item {
+    display: flex; gap: 2rem;
+    padding: 0 0 2.5rem 0;
+    position: relative;
+  }
+  .timeline-dot {
+    width: 42px; height: 42px; flex-shrink: 0;
+    border-radius: 50%;
+    border: 3px solid var(--blue);
+    background: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 1;
+    font-size: 1.1rem;
+    box-shadow: 0 0 0 4px var(--blue-light);
+  }
+  .timeline-body {
+    flex: 1; min-width: 0;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+  .timeline-role { font-size: 1.05rem; font-weight: 600; color: var(--navy); }
+  .timeline-company { font-size: 0.9rem; color: var(--teal); font-weight: 500; margin-top: 2px; }
+  .timeline-date {
+    font-size: 0.78rem; font-weight: 500;
+    background: var(--blue-light);
+    color: var(--blue);
+    padding: 4px 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .timeline-bullets { list-style: none; padding: 0; }
+  .timeline-bullets li {
+    font-size: 0.9rem; color: var(--gray-600);
+    padding: 5px 0 5px 18px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .timeline-bullets li::before {
+    content: '';
+    position: absolute; left: 0; top: 12px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .project-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex; flex-direction: column;
+  }
+  .project-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+  .project-icon {
+    width: 52px; height: 52px;
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .project-title { font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+  .project-desc { font-size: 0.88rem; color: var(--gray-600); line-height: 1.6; flex: 1; margin-bottom: 1.25rem; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+  .project-links { display: flex; gap: 10px; margin-top: auto; }
+  .project-link {
+    font-size: 0.82rem; font-weight: 500;
+    color: var(--blue);
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 6px 14px;
+    border: 1.5px solid var(--blue);
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .project-link:hover { background: var(--blue); color: white; }
+
+  /* ── CERTIFICATIONS ── */
+  #certifications { background: var(--gray-100); border-radius: 32px; max-width: 1100px; }
+  .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .cert-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .cert-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    border-radius: var(--radius-sm);
+    background: var(--blue-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .cert-name { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+  .cert-status {
+    font-size: 0.75rem; font-weight: 600;
+    padding: 2px 8px; border-radius: 999px;
+  }
+  .status-progress { background: #FFF3CD; color: #856404; }
+  .status-done { background: #D1FAE5; color: #065F46; }
+
+  /* ── EDUCATION ── */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .edu-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 1.75rem 2rem;
+    box-shadow: var(--shadow-sm);
+    position: relative; overflow: hidden;
+  }
+  .edu-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--teal));
+  }
+  .edu-degree { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .edu-school { font-size: 0.9rem; color: var(--teal); font-weight: 500; margin-bottom: 0.75rem; }
+  .edu-meta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .edu-badge {
+    font-size: 0.78rem; font-weight: 500;
+    padding: 3px 10px;
+    background: var(--blue-light);
+    color: var(--blue);
+    border-radius: 999px;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: linear-gradient(135deg, var(--navy) 0%, #1E40AF 60%, #0F766E 100%);
+    border-radius: 32px;
+    max-width: 1100px;
+    color: white;
+    text-align: center;
+  }
+  #contact .section-label { color: rgba(255,255,255,0.6); }
+  #contact .section-title { color: white; }
+  #contact .section-sub { color: rgba(255,255,255,0.75); margin: 0 auto 2.5rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.12);
+    color: white;
+    font-size: 0.9rem; font-weight: 500;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .contact-link:hover { background: rgba(255,255,255,0.22); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.82rem;
+    color: var(--gray-400);
+  }
+
+  /* ── SCROLL ANIMATION ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    #hero { flex-direction: column; text-align: center; padding-top: 6rem; gap: 2rem; }
+    .hero-avatar-wrap { order: -1; }
+    .hero-ctas { justify-content: center; }
+    .hero-stats { justify-content: center; }
+    .about-grid { grid-template-columns: 1fr; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .timeline::before { left: 16px; }
+    .timeline-dot { width: 34px; height: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">Sue Guo</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-text">
+    <div class="hero-badge"><span></span> Open to opportunities in Canada</div>
+    <h1 class="hero-title">Hi, I'm <em>Sue Guo</em><br>Software Developer</h1>
+    <p class="hero-desc">Backend-focused developer with 3+ years of enterprise experience building microservices, event-driven systems, and cloud-native applications in Java and Spring Boot — with a proven track record in government and private sector environments.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View Projects →</a>
+      <a href="https://github.com/sue-guo" target="_blank" class="btn-outline">GitHub</a>
+      <a href="https://www.linkedin.com/in/hongxiu-guo-3990282b3/" target="_blank" class="btn-outline">LinkedIn</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">4.0</div>
+        <div class="stat-label">GPA — Algonquin</div>
+      </div>
+      <div>
+        <div class="stat-num">Ottawa</div>
+        <div class="stat-label">Ontario, Canada</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-avatar-wrap">
+    <div class="hero-avatar" style="background: none; border: 3px solid var(--blue); padding: 0; overflow: hidden;">
+    <img src="sue-guo-bg-green.jpg" alt="Sue Guo" style="width: 100%; height: 100%; object-fit: cover;" />
+</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fade-up">
+  <div class="about-grid">
+    <div>
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">Reliable, professional, and enterprise-ready</h2>
+      <p style="color: var(--gray-600); line-height: 1.8; margin-bottom: 1.5rem;">I am a software developer with hands-on experience in enterprise backend development, cloud-native deployments, and public sector environments. My background spans Java microservices, event-driven messaging, database design, automated testing, and Power BI reporting.</p>
+      <p style="color: var(--gray-600); line-height: 1.8;">I thrive on building stable, secure, and scalable systems — and I continuously grow toward modern cloud technologies like Azure and AWS. I bring not just technical skills, but the professional habits that enterprise teams depend on.</p>
+    </div>
+    <div class="about-cards">
+      <div class="about-card">
+        <div class="about-card-icon">☁️</div>
+        <h3>Cloud &amp; DevOps</h3>
+        <p>Hands-on with Azure APIM, Blob Storage, Key Vault, DevOps pipelines, Kubernetes/OpenShift deployments, and IAM authentication patterns.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">⚙️</div>
+        <h3>Backend Engineering</h3>
+        <p>Java 21, Spring Boot, Apache Camel, event-driven messaging with Solace and IBM MQ, REST API design, and enterprise integration patterns.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🧪</div>
+        <h3>Quality &amp; Testing</h3>
+        <p>Comprehensive test coverage using JUnit 5, Mockito, WireMock, and BDD manual testing — including edge cases and third-party integration failures.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="fade-up">
+  <div class="section-label">Technical Skills</div>
+  <h2 class="section-title">What I work with</h2>
+  <p class="section-sub">A full-stack skillset focused on enterprise backend systems, cloud infrastructure, and delivery excellence.</p>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon" style="background:#EFF6FF;">☕</div>
+        <h3>Backend</h3>
+      </div>
+      <div class="skill-tags">
+        <span class="tag tag-blue">Java 21 / 17 / 11</span>
+        <span class="tag tag-blue">Spring Boot</span>
+        <span class="tag tag-blue">Apache Camel</span>
+        <span class="tag tag-blue">REST APIs</span>
+        <span class="tag tag-blue">Swagger / OpenAPI</span>
+        <span class="tag">Python</span>
+        <span class="tag">PL/SQL</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon" style="background:#F0FDFA;">📨</div>
+        <h3>Messaging &amp; Integration</h3>
+      </div>
+      <div class="skill-tags">
+        <span class="tag tag-teal">Solace Pub/Sub</span>
+        <span class="tag tag-teal">IBM MQ</span>
+        <span class="tag tag-teal">Event-Driven Architecture</span>
+        <span class="tag tag-teal">Enterprise Integration</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon" style="background:#EFF6FF;">☁️</div>
+        <h3>Cloud &amp; Storage</h3>
+      </div>
+      <div class="skill-tags">
+        <span class="tag tag-blue">Azure APIM</span>
+        <span class="tag tag-blue">Azure Blob Storage</span>
+        <span class="tag tag-blue">Key Vault</span>
+        <span class="tag tag-blue">AWS S3</span>
+        <span class="tag tag-blue">IAM Roles Anywhere</span>
+        <span class="tag">GCP-ready</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon" style="background:#F0FDFA;">🐳</div>
+        <h3>Kubernetes &amp; DevOps</h3>
+      </div>
+      <div class="skill-tags">
+        <span class="tag tag-teal">Kubernetes / OpenShift</span>
+        <span class="tag tag-teal">Docker</span>
+        <span class="tag tag-teal">CI/CD Pipelines</span>
+        <span class="tag tag-teal">Azure DevOps</span>
+        <span class="tag">Maven</span>
+        <span class="tag">Git</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon" style="background:#EFF6FF;">🗃️</div>
+        <h3>Databases</h3>
+      </div>
+      <div class="skill-tags">
+        <span class="tag tag-blue">Oracle</span>
+        <span class="tag tag-blue">PostgreSQL</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">MongoDB</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-header">
+        <div class="skill-group-icon" style="background:#F0FDFA;">🧪</div>
+        <h3>Testing &amp; Tools</h3>
+      </div>
+      <div class="skill-tags">
+        <span class="tag tag-teal">JUnit 4/5</span>
+        <span class="tag tag-teal">Mockito</span>
+        <span class="tag tag-teal">WireMock</span>
+        <span class="tag tag-teal">TestNG</span>
+        <span class="tag">Grafana</span>
+        <span class="tag">Nexus IQ</span>
+        <span class="tag">Power BI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="fade-up">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">Professional journey</h2>
+  <p class="section-sub">Enterprise and government experience building reliable, production-grade systems.</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot">🏛️</div>
+      <div class="timeline-body">
+        <div class="timeline-header">
+          <div>
+            <div class="timeline-role">Software Developer</div>
+            <div class="timeline-company">Employment and Social Development Canada — Ottawa, ON</div>
+          </div>
+          <span class="timeline-date">Jan 2025 – Present</span>
+        </div>
+        <ul class="timeline-bullets">
+          <li>Built Java 21 / Spring Boot + Apache Camel microservices using event-driven messaging (Solace, IBM MQ), integrated with AWS S3 and Azure Blob Storage for secure enterprise file processing.</li>
+          <li>Designed cloud-native hybrid authentication using IAM Roles Anywhere with sidecar containers in Kubernetes/OpenShift — eliminating static AWS credentials from production workloads.</li>
+          <li>Led end-to-end project delivery — development, testing, deployment, and post-deployment validation; implemented an Azure APIM proxy for reliable inter-system communication.</li>
+          <li>Diagnosed and resolved a critical production data loss/duplication defect through systematic root cause analysis; delivered fix within sprint cycle with comprehensive Mockito/JUnit regression tests.</li>
+          <li>Designed and maintained CI/CD pipelines in Azure DevOps with automated dependency vulnerability scanning via Nexus IQ; managed multi-environment releases on OpenShift/Kubernetes.</li>
+          <li>Completed Java 11 → Java 21 migration for multiple production applications while maintaining full SLA compliance.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot">🌾</div>
+      <div class="timeline-body">
+        <div class="timeline-header">
+          <div>
+            <div class="timeline-role">Power Platform Developer (Co-op)</div>
+            <div class="timeline-company">Agriculture and Agri-Food Canada — Ottawa, ON</div>
+          </div>
+          <span class="timeline-date">Sep 2024 – Dec 2024</span>
+        </div>
+        <ul class="timeline-bullets">
+          <li>Designed and published Power BI dashboards connected to SharePoint data sources for business analytics and data-driven decision-making.</li>
+          <li>Built Power Apps integrated with SharePoint and internal systems to streamline team workflows.</li>
+          <li>Migrated large volumes of historical documents to SharePoint Online, reorganizing structure and permissions to improve accessibility and governance.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot">💼</div>
+      <div class="timeline-body">
+        <div class="timeline-header">
+          <div>
+            <div class="timeline-role">Full Stack Developer</div>
+            <div class="timeline-company">WOYITECH, Inc / Ocean Soft, Inc — China</div>
+          </div>
+          <span class="timeline-date">Jan 2015 – Nov 2017</span>
+        </div>
+        <ul class="timeline-bullets">
+          <li>Led Java backend development using Spring MVC and Hibernate; algorithm optimizations improved system efficiency by ~30%.</li>
+          <li>Maintained and debugged five production Java web applications within Agile workflows; responsible for production issues and code reviews.</li>
+          <li>Designed and maintained 100+ test cases (JUnit, TestNG) covering unit, integration, performance, regression, and stress scenarios — improving application quality by 30%.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="fade-up">
+  <div class="section-label">Projects</div>
+  <h2 class="section-title">Selected work</h2>
+  <p class="section-sub">A sample of personal and academic projects demonstrating full-stack, backend, and data skills.</p>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-icon" style="background:#EFF6FF;">🍃</div>
+      <div class="project-title">Food Waste Reduction Platform</div>
+      <div class="project-desc">A full-stack MVC web application for connecting food donors with community recipients — featuring user registration, real-time listings, and admin management.</div>
+      <div class="project-tags">
+        <span class="tag tag-blue">Java Servlet</span>
+        <span class="tag tag-blue">JSP</span>
+        <span class="tag">SQL</span>
+        <span class="tag">MVC</span>
+        <span class="tag">HTML/CSS</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/sue-guo" target="_blank" class="project-link">GitHub →</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-icon" style="background:#F0FDFA;">📊</div>
+      <div class="project-title">Power BI Analytics Dashboard</div>
+      <div class="project-desc">Interactive Power BI dashboard connected to SharePoint list data, providing actionable business insights and KPI tracking for government decision-making.</div>
+      <div class="project-tags">
+        <span class="tag tag-teal">Power BI</span>
+        <span class="tag tag-teal">SharePoint</span>
+        <span class="tag">Data Viz</span>
+        <span class="tag">SQL</span>
+      </div>
+      <div class="project-links">
+        <a href="https://sue-guo.github.io/my-portfolio/" target="_blank" class="project-link">Portfolio →</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-icon" style="background:#EFF6FF;">🏛️</div>
+      <div class="project-title">Enterprise Microservices (ESDC)</div>
+      <div class="project-desc">Production microservices in a federal government environment — event-driven messaging, hybrid cloud authentication, CI/CD pipelines, and multi-environment Kubernetes deployments.</div>
+      <div class="project-tags">
+        <span class="tag tag-blue">Java 21</span>
+        <span class="tag tag-blue">Spring Boot</span>
+        <span class="tag tag-blue">Azure</span>
+        <span class="tag tag-teal">Kubernetes</span>
+        <span class="tag tag-teal">Solace</span>
+      </div>
+      <div class="project-links">
+        <a href="https://www.linkedin.com/in/hongxiu-guo-3990282b3/" target="_blank" class="project-link">LinkedIn →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="fade-up">
+  <div class="section-label">Learning &amp; Growth</div>
+  <h2 class="section-title">Certifications &amp; continuous development</h2>
+  <p class="section-sub">Committed to staying current with modern cloud and enterprise technologies.</p>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon">☁️</div>
+      <div>
+        <div class="cert-name">Microsoft AZ-900</div>
+        <div style="font-size:0.82rem; color:var(--gray-600); margin-bottom:6px;">Azure Fundamentals</div>
+        <span class="cert-status status-progress">In Progress</span>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">📈</div>
+      <div>
+        <div class="cert-name">Power BI</div>
+        <div style="font-size:0.82rem; color:var(--gray-600); margin-bottom:6px;">Data Analytics &amp; Dashboards</div>
+        <span class="cert-status status-done">Completed</span>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🎓</div>
+      <div>
+        <div class="cert-name">Dean's Honours List</div>
+        <div style="font-size:0.82rem; color:var(--gray-600); margin-bottom:6px;">Algonquin College — GPA 4.0</div>
+        <span class="cert-status status-done">Achieved</span>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">☕</div>
+      <div>
+        <div class="cert-name">Java 21 Migration</div>
+        <div style="font-size:0.82rem; color:var(--gray-600); margin-bottom:6px;">Production upgrade experience</div>
+        <span class="cert-status status-done">Production</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="fade-up">
+  <div class="section-label">Education</div>
+  <h2 class="section-title">Academic background</h2>
+  <p class="section-sub"></p>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-degree">Diploma of Computer Programming</div>
+      <div class="edu-school">Algonquin College — Ottawa, ON</div>
+      <div class="edu-meta">
+        <span class="edu-badge">Sep 2023 – Aug 2025</span>
+        <span class="edu-badge">GPA 4.0 / 4.0</span>
+        <span class="edu-badge">Dean's Honours List</span>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Bachelor of Information &amp; Computer Science</div>
+      <div class="edu-school">Anhui Jianzhu University — China</div>
+      <div class="edu-meta">
+        <span class="edu-badge">Sep 2011 – Jun 2015</span>
+        <span class="edu-badge">National Scholarship</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade-up">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Let's work together</h2>
+  <p class="section-sub">Open to Software Developer opportunities in Canada. Whether it's a full-time role, contract work, or just a conversation — I'd love to connect.</p>
+  <div class="contact-links">
+    <a href="mailto:hxiuguo@gmail.com" class="contact-link">✉️ hxiuguo@gmail.com</a>
+    <a href="https://www.linkedin.com/in/hongxiu-guo-3990282b3/" target="_blank" class="contact-link">💼 LinkedIn</a>
+    <a href="https://github.com/sue-guo" target="_blank" class="contact-link">🐱 GitHub</a>
+    <!-- <a href="https://sue-guo.github.io/my-portfolio/" target="_blank" class="contact-link">🌐 Portfolio</a> -->
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Hongxiu (Sue) Guo · Built with care in Ottawa, ON 🍁</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
